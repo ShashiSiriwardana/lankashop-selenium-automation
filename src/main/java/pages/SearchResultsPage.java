@@ -2,18 +2,27 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.time.Duration;
 
 public class SearchResultsPage {
 
-    private WebDriver driver;
+    WebDriver driver;
 
-    public SearchResultsPage(WebDriver driver) {
+    public SearchResultsPage(WebDriver driver){
         this.driver = driver;
     }
 
-    private By firstProduct = By.linkText("Damro Ceylon Chai Tee");
+    By firstProduct = By.partialLinkText("Damro");
 
-    public void openFirstProduct() {
+    public void openFirstProduct(){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(firstProduct));
+
         driver.findElement(firstProduct).click();
     }
 }
