@@ -18,7 +18,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 
             WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
+            driver = new ChromeDriver(options);
 
             driver.manage().window().maximize();
             driver.manage().deleteAllCookies();
