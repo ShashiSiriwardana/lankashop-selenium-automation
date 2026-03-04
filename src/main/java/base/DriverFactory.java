@@ -13,10 +13,14 @@ public class DriverFactory {
 
         ChromeOptions options = new ChromeOptions();
 
-        options.addArguments("--headless=new");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
-        options.addArguments("--disable-gpu");
+        boolean headless = Boolean.parseBoolean(System.getProperty("headless", "false"));
+
+        if (headless) {
+            options.addArguments("--headless=new");
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+        }
+
         options.addArguments("--window-size=1920,1080");
 
         WebDriverManager.chromedriver().setup();
