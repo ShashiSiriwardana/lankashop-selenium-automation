@@ -15,7 +15,7 @@ public class SearchResultsPage {
         this.driver = driver;
     }
 
-    By firstProduct = By.partialLinkText("Damro");
+    By firstProduct = By.partialLinkText("chai");
 
     public void openFirstProduct(){
 
