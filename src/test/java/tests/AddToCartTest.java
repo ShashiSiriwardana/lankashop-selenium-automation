@@ -3,10 +3,7 @@ package tests;
 import base.BaseTest;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.SearchPage;
-import pages.SearchResultsPage;
-import pages.ProductPage;
-import pages.CartPage;
+import pages.*;
 
 public class AddToCartTest extends BaseTest {
 
@@ -24,6 +21,11 @@ public class AddToCartTest extends BaseTest {
 
         CartPage cartPage = new CartPage(driver);
         cartPage.openCart();
+
+        cartPage.proceedToCheckout();
+
+        CheckoutPage checkoutPage = new CheckoutPage(driver);
+        checkoutPage.clickCheckout();
 
         Assert.assertTrue(cartPage.isProductDisplayed());
 

@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 public class CartPage {
 
     private WebDriver driver;
+
     public CartPage(WebDriver driver) {
         this.driver = driver;
     }
@@ -14,10 +15,21 @@ public class CartPage {
     private By cartIcon = By.cssSelector("a[href='/cart']");
     private By cartProduct = By.partialLinkText("Damro");
 
+    private By checkoutButton = By.name("checkout");
+
+
     public void openCart() {
         driver.findElement(cartIcon).click();
     }
-    public boolean isProductDisplayed(){
+
+    public boolean isProductDisplayed() {
         return driver.findElement(cartProduct).isDisplayed();
     }
+
+    public void proceedToCheckout() {
+        driver.findElement(checkoutButton).click();
+    }
+
+
 }
+
