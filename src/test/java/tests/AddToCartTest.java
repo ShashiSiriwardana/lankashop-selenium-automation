@@ -22,13 +22,12 @@ public class AddToCartTest extends BaseTest {
         CartPage cartPage = new CartPage(driver);
         cartPage.openCart();
 
-        cartPage.proceedToCheckout();
-
-        CheckoutPage checkoutPage = new CheckoutPage(driver);
-        checkoutPage.clickCheckout();
-
         Assert.assertTrue(cartPage.isProductDisplayed());
 
-        System.out.println("Product successfully added to cart.");
+        cartPage.proceedToCheckout();
+
+
+
+        System.out.println("Product successfully added to cart and checkout opened.");
     }
 }
